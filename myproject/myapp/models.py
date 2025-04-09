@@ -9,7 +9,7 @@ class Client(models.Model):
     date_of_birth = models.DateField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    tickets = models.JSONField(default=list)
+    
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

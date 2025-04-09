@@ -6,6 +6,8 @@ from .serializers import ClientSerializer
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.views import View
+from django.http import JsonResponse
 
 class ClientFilter(filters.FilterSet):
     class Meta:
@@ -18,7 +20,8 @@ class ClientViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.DjangoFilterBackend, search.SearchFilter)
     filterset_class = ClientFilter
     search_fields = ['first_name', 'last_name', 'email', 'address']
-    class AddTicketView(View):
+   
+class AddTicketView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
