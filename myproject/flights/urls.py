@@ -1,4 +1,3 @@
-from .views import FlightSearchView
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import ClientViewSet
@@ -11,6 +10,4 @@ urlpatterns = [
     path('', include(router.urls)),
     path('clients/<int:client_id>/add_ticket/', AddTicketView.as_view(), name='add-ticket'),
     path('clients/<int:client_id>/tickets/', GetTicketsView.as_view(), name='get-tickets'),
-    path('search/', FlightSearchView.as_view(), name='flight-search'),
 ]
-
